@@ -1,0 +1,19 @@
+  <h1>Error</h1>
+  <h2><?php echo $this->message ?></h2>
+
+  <?php if (isset($this->exception)): ?>
+		<?php echo $this->exception->getMessage() ?>
+	
+	  <?php if (APPLICATION_ENV == 'development') : ?>
+		  <h3>Trace:</h3>
+		  <div style="width: 500px; overflow: auto;">
+		  <pre>
+<?php echo $this->exception->getTraceAsString() ?>
+		  </pre>
+		  </div>
+		
+		  <h3>Parameters:</h3>
+		  <pre><?php echo var_export($this->request->getParams(), true) ?>
+		  </pre>
+	  <?php endif; ?>
+  <?php endif ?>

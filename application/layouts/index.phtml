@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <?php echo $this->headTitle(); ?>
+    <?php echo $this->headMeta(); ?>
+</head>
+<body>
+    <h1>Phonebook</h1>
+
+    <?php if (!empty($this->auth->email)) : ?>
+        <?php echo $this->auth->user_name ?> <?php echo $this->auth->user_surname ?> (<?php echo $this->auth->email  ?>)
+        <br/>
+        <a href="/">List</a>
+        <a href="/index/add/">Add new</a>
+        <a href="/auth/logout/">Logout</a>
+    <?php else : ?>
+        <a href="/auth/">Login</a>
+    <?php endif; ?>
+
+    <?php echo $this->searchForm ?>
+
+    <?php echo $this->layout()->content ?>
+</head>
+</body>

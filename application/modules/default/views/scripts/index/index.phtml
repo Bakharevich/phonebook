@@ -1,0 +1,49 @@
+<script>
+    function confirmDelete(contactId) {
+        if (confirm('Are you sure to delete contact #' + contactId + '?')) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+
+<?php if (!empty($this->contacts)) : ?>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Phone</td>
+            <td>Created at</td>
+            <td>Notes</td>
+            <td>Action</td>
+        </tr>
+        <?php foreach ($this->contacts as $value) : ?>
+            <tr>
+                <td><?php echo $value->contact_id ?></td>
+                <td><?php echo $value->name ?></td>
+                <td><?php echo $value->phone ?></td>
+                <td><?php echo $value->created_at ?></td>
+                <td><?php echo $value->notes ?></td>
+                <td>
+                    <a href="/index/edit/id/<?php echo $value->contact_id ?>">Edit</a>
+                    <a href="/index/delete/id/<?php echo $value->contact_id ?>" onclick="return confirmDelete(<?php echo $value->contact_id ?>)">Delete</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+<?php else : ?>
+    There are no contacts yet. <a href="/index/add/">Add one?</a>
+<?php endif; ?>
+
+<?php if (!empty($this->pages->pagesInRange)) : ?>
+    Pages:
+    <?php foreach ($this->pages->pagesInRange as $value) : ?>
+        <?php if ($this->pages->current == $value) : ?>
+            <?php echo $value; ?>
+        <?php else : ?>
+            <a href="/?page=<?php echo $value; ?>"><?php echo $value; ?></a>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
