@@ -8,6 +8,8 @@ class AuthController extends Phonebook_Controller_Action
 
     public function loginAction()
     {
+        Zend_Layout::getMvcInstance()->setLayout('auth');
+
         $config    = Zend_Registry::get('config');
         $dbAdapter = Zend_Registry::get('db');
 
@@ -60,7 +62,7 @@ class AuthController extends Phonebook_Controller_Action
 
     public function noauthAction()
     {
-
+        Zend_Layout::getMvcInstance()->setLayout('auth');
     }
 }
 

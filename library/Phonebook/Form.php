@@ -15,6 +15,7 @@ class Phonebook_Form extends Zend_Form {
         array(array('row' => 'HtmlTag'), array('tag' => 'tr')),
     );
 
+    /*
     public function loadDefaultDecorators()
     {
         $this->setDecorators(array(
@@ -23,5 +24,5 @@ class Phonebook_Form extends Zend_Form {
             'Form',
         ));
     }
-
+*/
 }

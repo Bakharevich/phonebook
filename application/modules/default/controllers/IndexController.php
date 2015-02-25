@@ -9,6 +9,8 @@ class IndexController extends Phonebook_Controller_Action
 
     public function indexAction()
     {
+        Zend_Layout::getMvcInstance()->setLayout('main');
+
         $page     = (int) $this->getRequest()->getParam('page', 1);
 
         $Contacts = new Model_DbTable_Contacts();

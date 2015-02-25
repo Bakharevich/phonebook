@@ -18,20 +18,22 @@ class Form_Search extends Phonebook_Form
 	public function init()
 	{
 		$this->setMethod('get')
-			 ->setAction('/');
+			 ->setAction('/')
+             ->setAttrib('class', 'navbar-form navbar-right')
+             ->setDecorators(array('FormElements','Form'));
 
-		$username = $this->createElement('text', 'search')
-                         ->setDecorators($this->elementDecorators)
-						 ->setRequired(false)
-                         ->addFilter('StripTags')
-                         ->setAttrib('size', 30)
-						 ->setLabel('Search');
+		$search = $this->createElement('text', 'search')
+                       ->setDecorators($this->elementDecorators)
+                       ->setRequired(false)
+                       ->addFilter('StripTags')
+                       ->setAttrib('class', 'form-control')
+                       ->setAttrib('placeholder', 'Search')
+                       ->setLabel('');
 
         $submit = $this->createElement('submit', 'submit')
                        ->setDecorators($this->buttonDecorators)
                        ->setLabel('Search');
 					   
-		$this->addElement($username)
-			 ->addElement($submit);
+		$this->addElement($search);
 	}
 }

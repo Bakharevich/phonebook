@@ -10,14 +10,14 @@
 </script>
 
 <?php if (!empty($this->contacts)) : ?>
-    <table>
+    <table class="table table-striped table-hover table-bordered">
         <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Phone</td>
-            <td>Created at</td>
-            <td>Notes</td>
-            <td>Action</td>
+            <td><b>ID</b></td>
+            <td><b>Name</b></td>
+            <td><b>Phone</b></td>
+            <td><b>Created at</b></td>
+            <td><b>Notes</b></td>
+            <td><b>Action</b></td>
         </tr>
         <?php foreach ($this->contacts as $value) : ?>
             <tr>
@@ -27,8 +27,8 @@
                 <td><?php echo $value->created_at ?></td>
                 <td><?php echo $value->notes ?></td>
                 <td>
-                    <a href="/index/edit/id/<?php echo $value->contact_id ?>">Edit</a>
-                    <a href="/index/delete/id/<?php echo $value->contact_id ?>" onclick="return confirmDelete(<?php echo $value->contact_id ?>)">Delete</a>
+                    <a href="/index/edit/id/<?php echo $value->contact_id ?>" class="btn btn-primary">Edit</a>
+                    <a href="/index/delete/id/<?php echo $value->contact_id ?>" class="btn btn-primary" onclick="return confirmDelete(<?php echo $value->contact_id ?>)">Delete</a>
                 </td>
             </tr>
         <?php endforeach; ?>
