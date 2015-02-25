@@ -1,5 +1,5 @@
 <?php
-class Phonebook_Controller_Action_Helper_LayoutLoader extends Zend_Controller_Action_Helper_Abstract
+class Phonebook_Controller_Action_Helper_Layoutloader extends Zend_Controller_Action_Helper_Abstract
 {
 	public  function preDispatch()
 	{
